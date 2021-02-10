@@ -19,5 +19,6 @@
 - error handler for sentry.io
 - login 
 - language change 
+- exception handle 
 - 
 
