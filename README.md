@@ -16,6 +16,7 @@
 - use fackerJS for generate massive amounts of fake data in the browser and node.js
 - swagger for api documentation
 - log for log everything 
+- cach manage with redis 
 - every error occuer to one page then entry in sentry.io
 - login 
 - language change 
