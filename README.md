@@ -23,4 +23,5 @@
 - only change database string than gose to difrent database 
 - need asyncronos with simple function , like authmedileware set , using socket.io
 - code generator , because when you need to create own controllar click it 
-- 
+- added ai for create api in just one milisecond 
+
