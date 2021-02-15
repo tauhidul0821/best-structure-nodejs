@@ -6,8 +6,8 @@
 - cors
 - dotenv
 - auth0
-- 
-- 
+- facker.js
+- commander.js
 - 
 - 
 
