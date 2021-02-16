@@ -5,7 +5,7 @@ const morgan = require('morgan')
 const connectDB = require('./config/db');
 const colors = require('colors')
 const errorHandler = require('./middleware/error')
-const {AppSetting} = require('./config/app-setting');
+const { AppSetting } = require('./config/app-setting');
 
 // Models
 const Bootcamp = require('./models/Bootcamp');
