@@ -5,9 +5,9 @@ const Bootcamp = require('../models/Bootcamp');
 // @desc    Get all bootcamps
 // @route   GET /api/v1/bootcamps
 // @access  Public
-exports.getBootcamps = async (req, res, next) => {
+exports.getBootcamps = async (req, res, next, CollectionName) => {
   try {
-    const bootcamps = await Bootcamp.find();
+    const bootcamps = await CollectionName.find();
     res.status(200).json({ success: true, count: bootcamps.length, data: bootcamps });
   } catch (err) {
     res.status(400).json({ success: false });

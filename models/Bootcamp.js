@@ -6,7 +6,7 @@ const BootCampSchema = new mongoose.Schema({
     required: [true, 'Please add a name'],
     unique: true,
     trim: true,
-    maxlength: [50,'Name can not be more than 50 characters']
+    maxlength: [50, 'Name can not be more than 50 characters']
   },
   slug: String,
   description: {
@@ -14,19 +14,19 @@ const BootCampSchema = new mongoose.Schema({
     required: [true, 'Please add a name'],
     unique: true,
     trim: true,
-    maxlength: [500,'description can not be more than 500 characters']
+    maxlength: [500, 'description can not be more than 500 characters']
   },
   website: {
     type: String
   },
-  phone:{
+  phone: {
     type: String,
     maxlength: [20, 'Phone number can not be longer than 20 characters']
   },
-  email:{
+  email: {
     type: String,
   },
-  address:{
+  address: {
     type: String,
     required: [true, 'Please add an address']
 
@@ -69,7 +69,7 @@ const BootCampSchema = new mongoose.Schema({
     max: [10, 'Rating must can not be more than 10']
   },
   averageCost: Number,
-  photo:{
+  photo: {
     type: String,
     default: 'no-photo.jpg'
   },
