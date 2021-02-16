@@ -5,6 +5,10 @@ const morgan = require('morgan')
 const connectDB = require('./config/db');
 const colors = require('colors')
 const errorHandler = require('./middleware/error')
+const {AppSetting} = require('./config/app-setting');
+
+// Models
+const Bootcamp = require('./models/Bootcamp');
 
 // Load env vars
 dotenv.config({ path: './config/config.env' });
@@ -28,7 +32,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 // Mount routers
-app.use('/api/v1/bootcamps', bootcamps);
+app.use(`${AppSetting.API_ENDPOINT}/bootcamps`, bootcamps);
 
 
 
