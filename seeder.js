@@ -41,3 +41,9 @@ if (process.argv[2] === '-i') {
   deleteData();
 
 }
+
+/**
+ * how to importData or deleteData
+ *  node seeder -d [for delete]
+ *  node seeder -i [for import]
+ */
