@@ -7,9 +7,6 @@ const colors = require('colors')
 const errorHandler = require('./middleware/error')
 const { AppSetting } = require('./config/app-setting');
 
-// Models
-const Bootcamp = require('./models/Bootcamp');
-
 // Load env vars
 dotenv.config({ path: './config/config.env' });
 
@@ -18,6 +15,7 @@ connectDB();
 
 // Route files
 const bootcamps = require('./routes/bootcamps');
+const courses = require('./routes/courses');
 
 const app = express();
 
@@ -33,6 +31,7 @@ if (process.env.NODE_ENV === 'development') {
 
 // Mount routers
 app.use(`${AppSetting.API_ENDPOINT}/bootcamps`, bootcamps);
+app.use(`${AppSetting.API_ENDPOINT}/courses`, courses);
 
 
 
