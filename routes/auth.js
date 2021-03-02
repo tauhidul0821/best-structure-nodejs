@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { register } = require('../controllers/auth');
+const { register,login } = require('../controllers/auth');
 
 
 // router
@@ -15,5 +15,6 @@ const { register } = require('../controllers/auth');
 //   .delete(deleteBootcamp);
 
 router.post('/register', register)
+router.post('/login', login)
 
 module.exports = router
