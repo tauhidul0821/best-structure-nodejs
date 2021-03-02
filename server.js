@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const morgan = require('morgan')
 const connectDB = require('./config/db');
 const colors = require('colors')
+const cookieParser = require('cookie-parser');
 const errorHandler = require('./middleware/error')
 const { AppSetting } = require('./config/app-setting');
 
@@ -22,6 +23,9 @@ const app = express();
 
 // Body parser
 app.use(express.json())
+
+// Cookie parser
+app.use(cookieParser())
 
 // app.use(logger);
 
