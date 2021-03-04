@@ -21,3 +21,4 @@ router
   .delete(protect, authorize('publisher', 'admin'), deleteBootcamp);
 
 module.exports = router
+ 
