@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { getBootcamps, getBootcamp, createBootcamp, updateBootcamp, deleteBootcamp } = require('../controllers/bootcamps');
-const { protect } = require('../middleware/auth')
+const { protect, authorize } = require('../middleware/auth')
 
 // Include other resource routers
 const courseRouter = require('./courses');
@@ -12,12 +12,12 @@ router.use('/:bootcampId/courses', courseRouter);
 router
   .route('/')
   .get(getBootcamps)
-  .post(protect, createBootcamp);
+  .post(protect, authorize('publisher', 'admin'), createBootcamp);
 
 router
   .route('/:id')
   .get(getBootcamp)
-  .put(protect, updateBootcamp)
-  .delete(protect, deleteBootcamp);
+  .put(protect, authorize('publisher', 'admin'), updateBootcamp)
+  .delete(protect, authorize('publisher', 'admin'), deleteBootcamp);
 
 module.exports = router
