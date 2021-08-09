@@ -1,4 +1,8 @@
 # best-structure-nodejs
+# for run .sh file 
+```shall
+  chmod +x yourShFileName.sh
+```
 
 ## which package use 
 - express
