@@ -23,8 +23,8 @@ connectDB();
 const bootcamps = require('./routes/bootcamps');
 const courses = require('./routes/courses');
 const auth = require('./routes/auth');
-// const personRoutes = require('./routes/personRoutes');
-// const teacherRoutes = require('./routes/teacherRoutes');
+const personRoutes = require('./routes/personRoutes');
+const teacherRoutes = require('./routes/teacherRoutes');
 
 const app = express();
 
@@ -50,8 +50,8 @@ if (process.env.NODE_ENV === 'development') {
 app.use(`${AppSetting.API_ENDPOINT}/bootcamps`, bootcamps);
 app.use(`${AppSetting.API_ENDPOINT}/courses`, courses);
 app.use(`${AppSetting.API_ENDPOINT}/auth`, auth);
-// app.use(`${AppSetting.API_ENDPOINT}/persons`, personRoutes);
-// app.use(`${AppSetting.API_ENDPOINT}/teachers`, teacherRoutes);
+app.use(`${AppSetting.API_ENDPOINT}/persons`, personRoutes);
+app.use(`${AppSetting.API_ENDPOINT}/teachers`, teacherRoutes);
 
 
 

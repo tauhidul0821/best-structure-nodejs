@@ -9,15 +9,6 @@ const courseRouter = require('./courses');
 // Re-route into other resource routers
 router.use('/:bootcampId/courses', courseRouter);
 
-/**
- * @swagger
- * 
- * get: 
- *  description: Use to request all bootcamps
- *  responses:
- *    '200':
- *      description: A successful response
- */
 router
   .route('/')
   .get(getBootcamps)
