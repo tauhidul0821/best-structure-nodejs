@@ -2,11 +2,16 @@ const express = require('express');
 const dotenv = require('dotenv');
 // const logger = require('./middleware/logger')
 const morgan = require('morgan')
+const swaggerUi = require('swagger-ui-express')
+const swaggerJsDoc = require('swagger-jsdoc')
+const { swaggerConfig } = require('./config/swaggerConfig');
 const connectDB = require('./config/db');
 const colors = require('colors')
 const cookieParser = require('cookie-parser');
 const errorHandler = require('./middleware/error')
 const { AppSetting } = require('./config/app-setting');
+
+
 
 // Load env vars
 dotenv.config({ path: './config/config.env' });
@@ -18,7 +23,8 @@ connectDB();
 const bootcamps = require('./routes/bootcamps');
 const courses = require('./routes/courses');
 const auth = require('./routes/auth');
-// const personRoutes = require('./routes/personRoutes');
+const personRoutes = require('./routes/personRoutes');
+const teacherRoutes = require('./routes/teacherRoutes');
 
 const app = express();
 
@@ -27,6 +33,11 @@ app.use(express.json())
 
 // Cookie parser
 app.use(cookieParser())
+
+// swagger configuration
+const specs = swaggerJsDoc(swaggerConfig.swaggerDoc);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+
 
 // app.use(logger);
 
@@ -39,7 +50,8 @@ if (process.env.NODE_ENV === 'development') {
 app.use(`${AppSetting.API_ENDPOINT}/bootcamps`, bootcamps);
 app.use(`${AppSetting.API_ENDPOINT}/courses`, courses);
 app.use(`${AppSetting.API_ENDPOINT}/auth`, auth);
-// app.use(`${AppSetting.API_ENDPOINT}/persons`, personRoutes);
+app.use(`${AppSetting.API_ENDPOINT}/persons`, personRoutes);
+app.use(`${AppSetting.API_ENDPOINT}/teachers`, teacherRoutes);
 
 
 

@@ -1,6 +1,6 @@
 # best-structure-nodejs
 # for run .sh file 
-```shall
+```shell
   chmod +x yourShFileName.sh
 ```
 
