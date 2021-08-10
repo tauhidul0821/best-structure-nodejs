@@ -4,30 +4,13 @@ const dotenv = require('dotenv');
 const morgan = require('morgan')
 const swaggerUi = require('swagger-ui-express')
 const swaggerJsDoc = require('swagger-jsdoc')
+const { swaggerConfig } = require('./config/swaggerConfig');
 const connectDB = require('./config/db');
 const colors = require('colors')
 const cookieParser = require('cookie-parser');
 const errorHandler = require('./middleware/error')
 const { AppSetting } = require('./config/app-setting');
 
-const swaggerOptions = {
-  definition: {
-    openapi: '3.0.0',
-    info: {
-      title: 'Devcamper API',
-      description: 'info',
-      version: '1.0.0'
-    },
-    servers: [
-      {
-        url: 'http://localhost:5000/api/v1'
-      }
-    ]
-  },
-  apis: ["./routes/*.js"]
-};
-
-const specs = swaggerJsDoc(swaggerOptions);
 
 
 // Load env vars
@@ -40,8 +23,8 @@ connectDB();
 const bootcamps = require('./routes/bootcamps');
 const courses = require('./routes/courses');
 const auth = require('./routes/auth');
-// const personRoutes = require('./routes/personRoutes');
-// const teacherRoutes = require('./routes/teacherRoutes');
+const personRoutes = require('./routes/personRoutes');
+const teacherRoutes = require('./routes/teacherRoutes');
 
 const app = express();
 
@@ -51,7 +34,8 @@ app.use(express.json())
 // Cookie parser
 app.use(cookieParser())
 
-// swagger api docs
+// swagger configuration
+const specs = swaggerJsDoc(swaggerConfig.swaggerDoc);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 
@@ -66,8 +50,8 @@ if (process.env.NODE_ENV === 'development') {
 app.use(`${AppSetting.API_ENDPOINT}/bootcamps`, bootcamps);
 app.use(`${AppSetting.API_ENDPOINT}/courses`, courses);
 app.use(`${AppSetting.API_ENDPOINT}/auth`, auth);
-// app.use(`${AppSetting.API_ENDPOINT}/persons`, personRoutes);
-// app.use(`${AppSetting.API_ENDPOINT}/teachers`, teacherRoutes);
+app.use(`${AppSetting.API_ENDPOINT}/persons`, personRoutes);
+app.use(`${AppSetting.API_ENDPOINT}/teachers`, teacherRoutes);
 
 
 
