@@ -3,36 +3,44 @@ const router = express.Router();
 const { getPersons,getPerson,createPerson,updatePerson,deletePerson } = require('../controllers/personControllers');
 
 /**
- * @swagger
- * components:
- *   schemas:
- *     Person:
- *       type: object
- *       required:
- *         - title
- *         - author
- *       properties:
- *         id:
- *           type: string
- *           description: The auto-generated id of the person
- *         title:
- *           type: string
- *           description: The person title
- *         author:
- *           type: string
- *           description: The person author
- *       example:
- *         id: d5fE_asz
- *         title: The New Turing Omnibus
- *         author: Alexander K. Dewdney
- */
+* @swagger
+* components:
+*   schemas:
+*     Person:
+*       type: object
+*       required:
+*         - title
+*         - author
+*       properties:
+*       
+*          name:
+*            type: String,
+*            description: The person name
+*
+*          age:
+*            type: Number,
+*            description: The person age
+*
+*          cgpa:
+*            type: Number,
+*            description: The person cgpa
+*        
+*       example:
+*          
+*             name: typehere
+*
+*             age: typehere
+*
+*             cgpa: typehere
+*          
+*/
 
- /**
-  * @swagger
+/**
+* @swagger
   * tags:
   *   name: Persons
   *   description: The persons API
-  */
+*/
 
 
 /**

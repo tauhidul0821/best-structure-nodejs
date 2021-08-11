@@ -1,20 +1,17 @@
+const path = require('path')
 const express = require('express');
-const dotenv = require('dotenv');
 // const logger = require('./middleware/logger')
 const morgan = require('morgan')
 const swaggerUi = require('swagger-ui-express')
 const swaggerJsDoc = require('swagger-jsdoc')
 const { swaggerConfig } = require('./config/swaggerConfig');
 const connectDB = require('./config/db');
+const env = require('./config/env');
 const colors = require('colors')
 const cookieParser = require('cookie-parser');
 const errorHandler = require('./middleware/error')
 const { AppSetting } = require('./config/app-setting');
 
-
-
-// Load env vars
-dotenv.config({ path: './config/config.env' });
 
 // Connect to database 
 connectDB();
@@ -25,6 +22,7 @@ const courses = require('./routes/courses');
 const auth = require('./routes/auth');
 const personRoutes = require('./routes/personRoutes');
 const teacherRoutes = require('./routes/teacherRoutes');
+// const studentRoutes = require('./routes/studentRoutes');
 
 const app = express();
 
@@ -41,8 +39,9 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 // app.use(logger);
 
-// Dev loggin middleware
-if (process.env.NODE_ENV === 'development') {
+env();
+
+if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
   app.use(morgan('dev'));
 }
 
@@ -52,12 +51,13 @@ app.use(`${AppSetting.API_ENDPOINT}/courses`, courses);
 app.use(`${AppSetting.API_ENDPOINT}/auth`, auth);
 app.use(`${AppSetting.API_ENDPOINT}/persons`, personRoutes);
 app.use(`${AppSetting.API_ENDPOINT}/teachers`, teacherRoutes);
+// app.use(`${AppSetting.API_ENDPOINT}/students`, studentRoutes);
 
 
 
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 2000;
 
 const server = app.listen(PORT, console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold));
 

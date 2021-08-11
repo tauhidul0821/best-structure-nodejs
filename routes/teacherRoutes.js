@@ -3,36 +3,50 @@ const router = express.Router();
 const { getTeachers,getTeacher,createTeacher,updateTeacher,deleteTeacher } = require('../controllers/teacherControllers');
 
 /**
- * @swagger
- * components:
- *   schemas:
- *     Teacher:
- *       type: object
- *       required:
- *         - title
- *         - author
- *       properties:
- *         id:
- *           type: string
- *           description: The auto-generated id of the teacher
- *         title:
- *           type: string
- *           description: The teacher title
- *         author:
- *           type: string
- *           description: The teacher author
- *       example:
- *         id: d5fE_asz
- *         title: The New Turing Omnibus
- *         author: Alexander K. Dewdney
- */
+* @swagger
+* components:
+*   schemas:
+*     Teacher:
+*       type: object
+*       required:
+*         - title
+*         - author
+*       properties:
+*       
+*          name:
+*            type: String,
+*            description: The teacher name
+*
+*          age:
+*            type: Number,
+*            description: The teacher age
+*
+*          certificate:
+*            type: String,
+*            description: The teacher certificate
+*
+*          address:
+*            type: String,
+*            description: The teacher address
+*        
+*       example:
+*          
+*             name: typehere
+*
+*             age: typehere
+*
+*             certificate: typehere
+*
+*             address: typehere
+*          
+*/
 
- /**
-  * @swagger
+/**
+* @swagger
   * tags:
   *   name: Teachers
   *   description: The teachers API
-  */
+*/
 
 
 /**
