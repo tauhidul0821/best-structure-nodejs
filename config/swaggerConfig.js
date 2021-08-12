@@ -1,18 +1,8 @@
 const path = require('path')
 const { AppSetting } = require('./app-setting');
-const env = require('./env')
+const env = require('./env')();
 
-env();
-// Dev loggin middleware
-// if (process.env.NODE_ENV === 'development') {
-//     require('dotenv').config({ path: path.resolve(__dirname, 'dev-config.env') })
-// } else if (process.env.NODE_ENV === 'test') {
-//     require('dotenv').config({ path: path.resolve(__dirname, 'test-config.env') })
-// } else {
-//     require('dotenv').config({ path: path.resolve(__dirname, 'prod-config.env') })
-// }
-
-const PORT = process.env.PORT || 5000;
+const { PORT = 500 } = process.env
 
 const swaggerOptions = {
     definition: {
