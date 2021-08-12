@@ -1,5 +1,4 @@
 const path = require('path')
-const ErrorResponse = require('../utils/errorResponse');
 
 // set environment variable
 const env = async () => {
@@ -10,13 +9,13 @@ const env = async () => {
             case undefined:
                 throw Error('Environment undefined, if local in terminal: export NODE_ENV=development')
             case 'development':
-                require('dotenv').config({ path: path.resolve(__dirname, 'dev-config.env') })
+                require('dotenv').config({ path: path.resolve(__dirname, 'config-dev.env') })
                 break
             case 'production':
-                require('dotenv').config({ path: path.resolve(__dirname, 'prod-config.env') })
+                require('dotenv').config({ path: path.resolve(__dirname, 'config-prod.env') })
                 break
             case 'test':
-                require('dotenv').config({ path: path.resolve(__dirname, 'test-config.env') })
+                require('dotenv').config({ path: path.resolve(__dirname, 'config-test.env') })
                 break
             default:
                 throw Error('Unrecognized Environment')
