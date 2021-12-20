@@ -1,0 +1,17 @@
+version: "3.7"
+services:
+  best-structure-nodejs:
+    build: .
+    environment:
+      - MONGO_URI=mongodb://mongodb-myapp:27017/devcamper
+    volumes:
+      - .:/app
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongodb-myapp
+
+  mongodb-myapp:
+    image: mongo
+    ports:
+      - "27017:27017"

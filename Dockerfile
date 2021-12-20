@@ -1,13 +1,13 @@
 FROM node:14.16.0
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
-COPY package.json ./
+COPY package.json /app
 
 RUN npm install
 
-COPY . . 
+COPY . /app
 
 EXPOSE 5000
 
-CMD ["node", "server.js"]
+CMD ["npm", "run", "dev"]
