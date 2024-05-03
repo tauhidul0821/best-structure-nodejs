@@ -25,6 +25,7 @@ const courses = require('./src/routes/courses');
 const auth = require('./src/routes/auth');
 const personRoutes = require('./src/routes/personRoutes');
 const teacherRoutes = require('./src/routes/teacherRoutes');
+const studentRoutes = require('./src/routes/studentRoutes');
 
 const app = express();
 
@@ -52,6 +53,7 @@ app.use(`${AppSetting.API_ENDPOINT}/courses`, courses);
 app.use(`${AppSetting.API_ENDPOINT}/auth`, auth);
 app.use(`${AppSetting.API_ENDPOINT}/persons`, personRoutes);
 app.use(`${AppSetting.API_ENDPOINT}/teachers`, teacherRoutes);
+app.use(`${AppSetting.API_ENDPOINT}/students`, studentRoutes);
 
 
 
