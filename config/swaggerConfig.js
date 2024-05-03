@@ -12,7 +12,7 @@ const swaggerOptions = {
             }
         ]
     },
-    apis: ["./routes/*.js"]
+    apis: ["./src/routes/*.js"]
 };
 
 exports.swaggerConfig = {

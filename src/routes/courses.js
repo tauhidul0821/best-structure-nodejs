@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router({ mergeParams: true });
 const { getCourses, getCourse, addCourse, updateCourse, deleteCourse } = require('../controllers/courses');
-const { protect, authorize } = require('../middleware/auth')
+const { protect, authorize } = require('../../middleware/auth')
 const {getPersons, getPerson} = require("../controllers/personControllers");
 
 

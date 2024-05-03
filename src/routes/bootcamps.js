@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { getBootcamps, getBootcamp, createBootcamp, updateBootcamp, deleteBootcamp } = require('../controllers/bootcamps');
-const { protect, authorize } = require('../middleware/auth')
+const { protect, authorize } = require('../../middleware/auth')
 
 // Include other resource routers
 const courseRouter = require('./courses');
