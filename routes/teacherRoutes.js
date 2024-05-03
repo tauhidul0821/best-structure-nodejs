@@ -9,22 +9,26 @@ const { getTeachers,getTeacher,createTeacher,updateTeacher,deleteTeacher } = req
  *     Teacher:
  *       type: object
  *       required:
- *         - title
- *         - author
+ *         - name
+ *         - age
  *       properties:
- *         id:
+ *         name:
  *           type: string
- *           description: The auto-generated id of the teacher
- *         title:
+ *           description: This is teacher name
+ *         age:
+ *           type: number
+ *           description: The teacher age
+ *         certificate:
  *           type: string
- *           description: The teacher title
- *         author:
+ *           description: The teacher certificate list by comma
+ *         address:
  *           type: string
- *           description: The teacher author
+ *           description: The teacher address
  *       example:
- *         id: d5fE_asz
- *         title: The New Turing Omnibus
- *         author: Alexander K. Dewdney
+ *         name: Mr. John
+ *         age: 29
+ *         certificate: AWS, NodeJS, Azure
+ *         address: Mohakhali 4, Dhaka-1212
  */
 
  /**
@@ -65,14 +69,14 @@ router.get('/',getTeachers);
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/Teachers'
+ *             $ref: '#/components/schemas/Teacher'
  *     responses:
  *       200:
  *         description: The book was successfully created
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Teachers'
+ *               $ref: '#/components/schemas/Teacher'
  *       500:
  *         description: Some server error
  */
