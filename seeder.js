@@ -8,8 +8,8 @@ const asyncHandler = require('./middleware/async');
 dotenv.config({ path: './config/config.env' });
 
 // Load models
-const Bootcamp = require('./models/Bootcamp');
-const Course = require('./models/Course');
+const Bootcamp = require('./src/models/Bootcamp');
+const Course = require('./src/models/Course');
 
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,

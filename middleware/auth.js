@@ -1,8 +1,8 @@
-const ErrorResponse = require('../utils/errorResponse');
+const ErrorResponse = require('../src/utils/errorResponse');
 const asyncHandler = require('../middleware/async');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken')
-const User = require('../models/User');
+const User = require('../src/models/User');
 
 // Protect routes
 exports.protect = asyncHandler(async (req, res, next) => {

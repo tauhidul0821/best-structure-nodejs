@@ -20,11 +20,11 @@ dotenv.config({ path: './config/config.env' });
 connectDB();
 
 // Route files
-const bootcamps = require('./routes/bootcamps');
-const courses = require('./routes/courses');
-const auth = require('./routes/auth');
-const personRoutes = require('./routes/personRoutes');
-const teacherRoutes = require('./routes/teacherRoutes');
+const bootcamps = require('./src/routes/bootcamps');
+const courses = require('./src/routes/courses');
+const auth = require('./src/routes/auth');
+const personRoutes = require('./src/routes/personRoutes');
+const teacherRoutes = require('./src/routes/teacherRoutes');
 
 const app = express();
 
