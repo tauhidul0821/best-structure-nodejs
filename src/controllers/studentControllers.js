@@ -24,7 +24,23 @@ exports.getStudent = async (req, res, next) => {
             return next(new ErrorResponse(`Student not found with id of ${req.params.id}`, 404));
         }
 
-        res.status(200).json({ success: true, data: student });
+        // Calculate age based on the birth date
+        const currentDate = new Date();
+        const birthDate = new Date(student.dateOfBarth);
+        const age = currentDate.getFullYear() - birthDate.getFullYear();
+        const obj = {
+            _id: student._id,
+            name: student.name,
+            fatherName: student.fatherName,
+            motherName: student.motherName,
+            group: student.group,
+            registration: student.registration,
+            dateOfBarth: student.dateOfBarth,
+            address: student.address,
+            age
+        }
+
+        res.status(200).json({ success: true, data: obj});
     } catch (err) {
         next(new ErrorResponse(`Student not found with id of ${req.params.id}`, 404))
     }
