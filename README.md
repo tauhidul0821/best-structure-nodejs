@@ -31,3 +31,11 @@
 - code generator , because when you need to create own controllar click it 
 - added ai for create api in just one milisecond 
 
+# child process example 
+- hit this url first : 'http://localhost:5000/api/v1/prime/60000000000000'
+- that is runing diffrent process 
+- that again hit another url that will not stop response
+- http://localhost:5000/api/v1/prime/600
+- now question is what is child process 
+- The node:child_process module provides the ability to create subprocesses in a manner that is similar, but not identical, to popen(3). This capability is primarily provided by the child_process.spawn() function
+
