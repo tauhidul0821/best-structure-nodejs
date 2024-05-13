@@ -6,6 +6,7 @@
   "scripts": {
     "start": "NODE_ENV=production node server",
     "dev": "nodemon server",
+    "cluster-server": "nodemon cluster.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Tauhidul Islam",
@@ -24,6 +25,8 @@
     "swagger-ui-express": "^4.1.6"
   },
   "devDependencies": {
-    "nodemon": "^2.0.7"
+    "loadtest": "^8.0.9",
+    "nodemon": "^2.0.7",
+    "pm2": "^5.3.1"
   }
 }

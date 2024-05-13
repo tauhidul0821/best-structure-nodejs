@@ -26,6 +26,7 @@ const personRoutes = require('./src/routes/personRoutes');
 const teacherRoutes = require('./src/routes/teacherRoutes');
 const studentRoutes = require('./src/routes/studentRoutes');
 const primeNum = require('./src/routes/primeNum');
+const clusterRoute = require('./src/routes/clusterCheck');
 
 const app = express();
 
@@ -56,14 +57,14 @@ app.use(`${AppSetting.API_ENDPOINT}/teachers`, teacherRoutes);
 app.use(`${AppSetting.API_ENDPOINT}/students`, studentRoutes);
 
 app.use(`${AppSetting.API_ENDPOINT}/prime`, primeNum);
-
+app.use(`${AppSetting.API_ENDPOINT}/cluster`, clusterRoute);
 
 
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
-const server = app.listen(PORT, console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold));
+const server = app.listen(PORT, console.log(`Server running in ${process.env.NODE_ENV} pid=${process.pid} mode on port ${PORT}`.yellow.bold));
 
 // Handle unhandled promise rejections
 process.on('unhandledRejection', (err, promise) => {
