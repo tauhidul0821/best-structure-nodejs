@@ -27,6 +27,7 @@ const teacherRoutes = require('./src/routes/teacherRoutes');
 const studentRoutes = require('./src/routes/studentRoutes');
 const primeNum = require('./src/routes/primeNum');
 const clusterRoute = require('./src/routes/clusterCheck');
+const workerRoute = require('./src/routes/workerCheck');
 
 const app = express();
 
@@ -56,9 +57,14 @@ app.use(`${AppSetting.API_ENDPOINT}/persons`, personRoutes);
 app.use(`${AppSetting.API_ENDPOINT}/teachers`, teacherRoutes);
 app.use(`${AppSetting.API_ENDPOINT}/students`, studentRoutes);
 
+// child_process example API
 app.use(`${AppSetting.API_ENDPOINT}/prime`, primeNum);
+
+// Cluster example API
 app.use(`${AppSetting.API_ENDPOINT}/cluster`, clusterRoute);
 
+// Worker threads example API
+app.use(`${AppSetting.API_ENDPOINT}/worker`, workerRoute);
 
 app.use(errorHandler);
 
